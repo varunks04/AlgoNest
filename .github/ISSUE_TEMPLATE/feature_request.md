@@ -6,15 +6,25 @@ labels: enhancement
 
 ## Summary
 
-Describe the feature.
+Describe the proposed feature in one or two sentences.
 
 ## Motivation
 
-Why this feature is useful.
+Explain the problem this solves and why it should be in AlgoNest.
 
 ## Proposed API
 
-Show expected function/class signature.
+Share a suggested function or class signature.
+
+```python
+# Example
+# def function_name(...) -> ...:
+#     ...
+```
+
+## Alternatives Considered
+
+List alternatives you evaluated, if any.
 
 ## Additional Context
 

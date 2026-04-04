@@ -1,31 +1,31 @@
-# Contributing Guide
+# Contributing
 
-Thank you for contributing to algonest.
+Thank you for contributing to AlgoNest.
 
-## Setup
-
-1. Use Python 3.8+.
-2. Install dev dependencies:
+## Clone and Setup
 
 ```bash
+git clone https://github.com/varunks04/AlgoNest.git
+cd AlgoNest
 pip install -e .[dev]
 ```
 
-3. Run tests:
+## Run Tests
 
 ```bash
 python -m pytest -q tests
 ```
 
-## Pull Request Checklist
+## Coding Rules
 
-- Follow phase scope in Agent Docs.
-- Add or update tests for every behavior change.
-- Keep public imports in `algonest/__init__.py` consistent.
-- Keep docstrings and complexity notes up to date.
+- Keep implementations deterministic and side-effect aware.
+- Preserve existing public API names unless the change explicitly targets API evolution.
+- Prefer clear, typed signatures and concise docstrings.
+- Add or update tests for any behavior change.
 
-## Coding Standards
+## Pull Request Guidelines
 
-- Use clear naming.
-- Prefer iterative solutions where phase rules require it.
-- Avoid hidden side effects and input mutation unless documented.
+- Keep PR scope focused and explain the motivation clearly.
+- Include test coverage for new behavior and edge cases.
+- Update documentation when public behavior or usage changes.
+- Ensure all tests pass before requesting review.

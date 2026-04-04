@@ -1,6 +1,6 @@
 """Bellman-Ford shortest-path algorithm."""
 
-from typing import Dict, List, Tuple
+from typing import List, Tuple
 
 
 def bellman_ford(

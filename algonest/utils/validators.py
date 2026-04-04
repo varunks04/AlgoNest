@@ -1,6 +1,6 @@
 """Validation helpers shared across algonest package modules."""
 
-from typing import Any, Iterable, List
+from typing import Any, List
 
 
 def validate_iterable(arr: Any) -> List[Any]:

@@ -1,6 +1,16 @@
 # AlgoNest
 
-algonest is a clean, reusable Python DSA utility package focused on production-ready implementations of core algorithmic patterns.
+AlgoNest is a Python algorithms and data structures library with a unified, iterable-first API.
+It is designed for interview prep, education, and production utility code where correctness and readability matter.
+The package provides reusable implementations with consistent naming and behavior across modules.
+
+## Key Features
+
+- Unified API exposed from package root (`from algonest import ...`)
+- Broad coverage: arrays, search, sort, trees, graphs, dynamic programming, strings, math, and utilities
+- Iterable-first function contracts for flexible inputs
+- Stable behavior with explicit validation and predictable error handling
+- Lightweight package footprint with no required runtime dependencies
 
 ## Installation
 
@@ -8,41 +18,87 @@ algonest is a clean, reusable Python DSA utility package focused on production-r
 pip install algonest
 ```
 
-## Included Modules
+## Quick Usage Examples
 
-- `algonest.search.binary_search`: `lower_bound`, `upper_bound`, `binary_search`
-- `algonest.arrays.sliding_window`: `max_sum_subarray_k`, `longest_unique_substring`
-- `algonest.sort.sorting`: classical sorting algorithms
-- `algonest.linked_list`: linked list data structures
-- `algonest.stack_queue`: stack, queue, deque, monotonic stack utilities
-- `algonest.heap`: min heap, max heap, priority queue
-- `algonest.trees`: binary trees, BST/AVL, traversals, segment/fenwick trees
-- `algonest.graphs`: traversal, shortest path, MST, DSU, topological sorting
-- `algonest.dynamic_programming`: knapsack, LCS/LIS, coin change, MCM, edit distance
-- `algonest.strings`: KMP, Rabin-Karp, Z algorithm, trie, anagram utilities
-- `algonest.math`: gcd/lcm, prime utilities, modular arithmetic, bit tricks
-- `algonest.utils`: validators and shared type helper aliases
-
-## Quick Start
+### Search: `binary_search`
 
 ```python
-from algonest import (
-	binary_search,
-	longest_unique_substring,
-	lower_bound,
-	max_sum_subarray_k,
-	upper_bound,
-)
+from algonest import binary_search
 
-idx = lower_bound([1, 2, 2, 4], 2)
-hi = upper_bound([1, 2, 2, 4], 2)
-pos = binary_search([1, 3, 5, 7], 5)
-best = max_sum_subarray_k([2, 1, 5, 1, 3, 2], 3)
-size = longest_unique_substring("abcabcbb")
+index = binary_search([1, 3, 5, 7, 9], 7)
+print(index)  # 3
 ```
 
-## Testing
+### Arrays: `max_subarray_sum` (Kadane)
 
-```bash
-python -m pytest -q tests
+```python
+from algonest import max_subarray_sum
+
+best = max_subarray_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+print(best)  # 6
 ```
+
+### Sort: `merge_sort`
+
+```python
+from algonest import merge_sort
+
+sorted_values = merge_sort([5, 2, 9, 1])
+print(sorted_values)  # [1, 2, 5, 9]
+```
+
+## Supported Data Types
+
+AlgoNest APIs are built around iterable inputs and internal list conversion.
+
+- `list`: fully supported
+- `tuple`: fully supported
+- NumPy arrays: supported when NumPy is installed, because arrays are iterable
+- Custom nodes and data structures: provided for linked lists and trees (`ListNode`, `DoublyListNode`, `TreeNode`)
+
+## Project Structure
+
+```text
+AlgoNest/
+|-- algonest/
+|   |-- arrays/
+|   |-- search/
+|   |-- sort/
+|   |-- linked_list/
+|   |-- stack_queue/
+|   |-- heap/
+|   |-- trees/
+|   |-- graphs/
+|   |-- dynamic_programming/
+|   |-- strings/
+|   |-- math/
+|   `-- utils/
+|-- tests/
+|-- benchmarks/
+|-- docs/
+|-- API_GUIDE.md
+`-- pyproject.toml
+```
+
+## Design Principles
+
+- Consistency: common naming and predictable return behavior
+- Reusability: modular algorithms and data structures that compose well
+- Simplicity: clear function contracts and minimal API friction
+- Performance: practical implementations with documented complexity
+
+## Roadmap
+
+- Phase 1: Core algorithms (search, sort, arrays)
+- Phase 2: Core data structures (linked lists, stack/queue, heap)
+- Phase 3: Advanced algorithms (trees, graphs, dynamic programming)
+- Phase 4: Specialized modules (strings, math, utilities)
+- Phase 5: Ecosystem quality (packaging, docs, tests, CI)
+
+## Contributing
+
+Contributions are welcome. See `CONTRIBUTING.md` for setup, test commands, and pull request guidelines.
+
+## License
+
+AlgoNest is released under the MIT License. See `LICENSE` for details.
