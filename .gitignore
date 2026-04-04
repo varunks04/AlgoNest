@@ -1,0 +1,19 @@
+/Agent Docs/**
+Agent Docs/
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.env
+.venv/
+.venv
+build/
+dist/
+venv/
+build/
+dist/
+.coverage
+.DS_Store
