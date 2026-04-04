@@ -4,23 +4,30 @@ about: Report incorrect behavior in algorithms or data structures
 labels: bug
 ---
 
-## Description
+## Summary
 
-Describe the bug clearly.
+Provide a short description of the issue.
 
-## Reproduction
+## Steps to Reproduce
 
-Steps or code snippet to reproduce.
+List the exact steps or provide a minimal reproducible snippet.
 
 ## Expected Behavior
 
-What should happen.
+Describe the expected result.
 
 ## Actual Behavior
 
-What happened instead.
+Describe what happened instead.
+
+## Minimal Example
+
+```python
+# Optional but recommended
+```
 
 ## Environment
 
 - Python version:
 - OS:
+- AlgoNest version:

@@ -1,7 +1,7 @@
 """Prefix-sum based array algorithms."""
 
 from numbers import Real
-from typing import Any, Iterable, List
+from typing import Iterable, List
 
 from algonest.utils import _validate_iterable
 

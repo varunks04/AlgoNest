@@ -1,0 +1,57 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Verify tag matches package version
+        run: |
+          python - <<'PY'
+          import pathlib
+          import tomllib
+          import os
+
+          pyproject = pathlib.Path("pyproject.toml")
+          data = tomllib.loads(pyproject.read_text(encoding="utf-8"))
+          project_version = data["project"]["version"]
+          tag_name = os.environ["GITHUB_REF_NAME"]
+
+          expected_tag = f"v{project_version}"
+          if tag_name != expected_tag:
+              raise SystemExit(
+                  f"Tag/version mismatch: tag '{tag_name}' != expected '{expected_tag}'"
+              )
+          print(f"Tag/version match confirmed: {tag_name}")
+          PY
+
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build package
+        run: python -m build
+
+      - name: Check package metadata
+        run: twine check dist/*
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload dist/*

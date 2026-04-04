@@ -1,7 +1,5 @@
 """Fenwick tree (Binary Indexed Tree) implementation."""
 
-from typing import List
-
 
 class FenwickTree:
     """Support prefix sums and point updates in logarithmic time."""
