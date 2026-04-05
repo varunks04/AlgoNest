@@ -2,7 +2,24 @@
 
 
 def fast_power(base: int, exp: int) -> int:
-    """Return base raised to exp using binary exponentiation."""
+    """Raise an integer base to a non-negative integer exponent.
+
+    Args:
+        base: Integer base.
+        exp: Non-negative exponent.
+
+    Returns:
+        ``base`` raised to ``exp``.
+
+    Raises:
+        ValueError: If ``exp`` is negative.
+
+    Time Complexity:
+        O(log exp).
+
+    Space Complexity:
+        O(1).
+    """
     if exp < 0:
         raise ValueError("exp must be non-negative")
     result = 1

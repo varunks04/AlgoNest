@@ -2,25 +2,40 @@
 
 
 def edit_distance(first: str, second: str) -> int:
-    """Return minimum edit operations from first to second."""
-    m = len(first)
+    """Compute Levenshtein edit distance between two strings.
+
+    Args:
+        first: Source string.
+        second: Target string.
+
+    Returns:
+        The minimum number of insertions, deletions, and substitutions needed
+        to transform ``first`` into ``second``.
+
+    Time Complexity:
+        O(len(first) * len(second)).
+
+    Space Complexity:
+        O(len(first) * len(second)).
+    """
+    first_length = len(first)
     n = len(second)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    dp = [[0] * (n + 1) for _ in range(first_length + 1)]
 
-    for i in range(m + 1):
-        dp[i][0] = i
-    for j in range(n + 1):
-        dp[0][j] = j
+    for first_index in range(first_length + 1):
+        dp[first_index][0] = first_index
+    for second_index in range(n + 1):
+        dp[0][second_index] = second_index
 
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if first[i - 1] == second[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1]
+    for first_index in range(1, first_length + 1):
+        for second_index in range(1, n + 1):
+            if first[first_index - 1] == second[second_index - 1]:
+                dp[first_index][second_index] = dp[first_index - 1][second_index - 1]
             else:
-                dp[i][j] = 1 + min(
-                    dp[i - 1][j],
-                    dp[i][j - 1],
-                    dp[i - 1][j - 1],
+                dp[first_index][second_index] = 1 + min(
+                    dp[first_index - 1][second_index],
+                    dp[first_index][second_index - 1],
+                    dp[first_index - 1][second_index - 1],
                 )
 
-    return dp[m][n]
+    return int(dp[first_length][n])

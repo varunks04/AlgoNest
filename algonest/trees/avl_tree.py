@@ -42,24 +42,28 @@ class AVLTree:
         return self._height(node.left) - self._height(node.right)
 
     def _rotate_right(self, y: AVLNode) -> AVLNode:
-        x = y.left
-        assert x is not None
-        t2 = x.right
-        x.right = y
-        y.left = t2
+        pivot_node = y.left
+        assert pivot_node is not None
+        transfer_subtree = pivot_node.right
+        pivot_node.right = y
+        y.left = transfer_subtree
         y.height = 1 + max(self._height(y.left), self._height(y.right))
-        x.height = 1 + max(self._height(x.left), self._height(x.right))
-        return x
+        pivot_node.height = 1 + max(
+            self._height(pivot_node.left), self._height(pivot_node.right)
+        )
+        return pivot_node
 
     def _rotate_left(self, x: AVLNode) -> AVLNode:
-        y = x.right
-        assert y is not None
-        t2 = y.left
-        y.left = x
-        x.right = t2
+        pivot_node = x.right
+        assert pivot_node is not None
+        transfer_subtree = pivot_node.left
+        pivot_node.left = x
+        x.right = transfer_subtree
         x.height = 1 + max(self._height(x.left), self._height(x.right))
-        y.height = 1 + max(self._height(y.left), self._height(y.right))
-        return y
+        pivot_node.height = 1 + max(
+            self._height(pivot_node.left), self._height(pivot_node.right)
+        )
+        return pivot_node
 
     def _insert(self, node: Optional[AVLNode], value: int) -> AVLNode:
         if node is None:

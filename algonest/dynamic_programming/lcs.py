@@ -2,16 +2,33 @@
 
 
 def lcs_length(first: str, second: str) -> int:
-    """Return length of longest common subsequence."""
-    m = len(first)
+    """Compute the longest common subsequence length.
+
+    Args:
+        first: First input string.
+        second: Second input string.
+
+    Returns:
+        LCS length.
+
+    Time Complexity:
+        O(len(first) * len(second)).
+
+    Space Complexity:
+        O(len(first) * len(second)).
+    """
+    first_length = len(first)
     n = len(second)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    dp = [[0] * (n + 1) for _ in range(first_length + 1)]
 
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if first[i - 1] == second[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1] + 1
+    for first_index in range(1, first_length + 1):
+        for second_index in range(1, n + 1):
+            if first[first_index - 1] == second[second_index - 1]:
+                dp[first_index][second_index] = dp[first_index - 1][second_index - 1] + 1
             else:
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+                dp[first_index][second_index] = max(
+                    dp[first_index - 1][second_index],
+                    dp[first_index][second_index - 1],
+                )
 
-    return dp[m][n]
+    return int(dp[first_length][n])

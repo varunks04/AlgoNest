@@ -30,11 +30,14 @@ def bubble_sort(arr: Iterable[Any]) -> List[Any]:
     """
     values = _validate_iterable(arr)
 
-    for i in range(len(values)):
+    for pass_index in range(len(values)):
         swapped = False
-        for j in range(0, len(values) - i - 1):
-            if values[j] > values[j + 1]:
-                values[j], values[j + 1] = values[j + 1], values[j]
+        for compare_index in range(0, len(values) - pass_index - 1):
+            if values[compare_index] > values[compare_index + 1]:
+                values[compare_index], values[compare_index + 1] = (
+                    values[compare_index + 1],
+                    values[compare_index],
+                )
                 swapped = True
         if not swapped:
             break
@@ -63,12 +66,12 @@ def selection_sort(arr: Iterable[Any]) -> List[Any]:
     """
     values = _validate_iterable(arr)
 
-    for i in range(len(values)):
-        min_index = i
-        for j in range(i + 1, len(values)):
-            if values[j] < values[min_index]:
-                min_index = j
-        values[i], values[min_index] = values[min_index], values[i]
+    for position_index in range(len(values)):
+        min_index = position_index
+        for candidate_index in range(position_index + 1, len(values)):
+            if values[candidate_index] < values[min_index]:
+                min_index = candidate_index
+        values[position_index], values[min_index] = values[min_index], values[position_index]
 
     return values
 
@@ -94,13 +97,13 @@ def insertion_sort(arr: Iterable[Any]) -> List[Any]:
     """
     values = _validate_iterable(arr)
 
-    for i in range(1, len(values)):
-        key = values[i]
-        j = i - 1
-        while j >= 0 and values[j] > key:
-            values[j + 1] = values[j]
-            j -= 1
-        values[j + 1] = key
+    for position_index in range(1, len(values)):
+        key_value = values[position_index]
+        insert_index = position_index - 1
+        while insert_index >= 0 and values[insert_index] > key_value:
+            values[insert_index + 1] = values[insert_index]
+            insert_index -= 1
+        values[insert_index + 1] = key_value
 
     return values
 
@@ -129,21 +132,21 @@ def merge_sort(arr: Iterable[Any]) -> List[Any]:
     def _sort(data: List[Any]) -> List[Any]:
         if len(data) <= 1:
             return data
-        mid = len(data) // 2
-        left = _sort(data[:mid])
-        right = _sort(data[mid:])
+        middle_index = len(data) // 2
+        left = _sort(data[:middle_index])
+        right = _sort(data[middle_index:])
         merged: List[Any] = []
-        i = 0
-        j = 0
-        while i < len(left) and j < len(right):
-            if left[i] <= right[j]:
-                merged.append(left[i])
-                i += 1
+        left_index = 0
+        right_index = 0
+        while left_index < len(left) and right_index < len(right):
+            if left[left_index] <= right[right_index]:
+                merged.append(left[left_index])
+                left_index += 1
             else:
-                merged.append(right[j])
-                j += 1
-        merged.extend(left[i:])
-        merged.extend(right[j:])
+                merged.append(right[right_index])
+                right_index += 1
+        merged.extend(left[left_index:])
+        merged.extend(right[right_index:])
         return merged
 
     return _sort(values)
@@ -174,9 +177,9 @@ def quick_sort(arr: Iterable[Any]) -> List[Any]:
         if len(data) <= 1:
             return data
         pivot = data[len(data) // 2]
-        lower = [x for x in data if x < pivot]
-        equal = [x for x in data if x == pivot]
-        higher = [x for x in data if x > pivot]
+        lower = [value for value in data if value < pivot]
+        equal = [value for value in data if value == pivot]
+        higher = [value for value in data if value > pivot]
         return _sort(lower) + equal + _sort(higher)
 
     return _sort(values)
@@ -215,12 +218,12 @@ def heap_sort(arr: Iterable[Any]) -> List[Any]:
             data[root], data[largest] = data[largest], data[root]
             _heapify(data, n, largest)
 
-    for i in range(len(values) // 2 - 1, -1, -1):
-        _heapify(values, len(values), i)
+    for heap_root_index in range(len(values) // 2 - 1, -1, -1):
+        _heapify(values, len(values), heap_root_index)
 
-    for i in range(len(values) - 1, 0, -1):
-        values[0], values[i] = values[i], values[0]
-        _heapify(values, i, 0)
+    for end_index in range(len(values) - 1, 0, -1):
+        values[0], values[end_index] = values[end_index], values[0]
+        _heapify(values, end_index, 0)
 
     return values
 
@@ -305,14 +308,14 @@ def radix_sort(arr: Iterable[Any]) -> List[int]:
         counts = [0] * RADIX_BASE
         for value in output:
             counts[(value // place) % RADIX_BASE] += 1
-        for i in range(1, RADIX_BASE):
-            counts[i] += counts[i - 1]
+        for digit_index in range(1, RADIX_BASE):
+            counts[digit_index] += counts[digit_index - 1]
 
         temp = [0] * len(output)
-        for i in range(len(output) - 1, -1, -1):
-            digit = (output[i] // place) % RADIX_BASE
+        for output_index in range(len(output) - 1, -1, -1):
+            digit = (output[output_index] // place) % RADIX_BASE
             counts[digit] -= 1
-            temp[counts[digit]] = output[i]
+            temp[counts[digit]] = output[output_index]
 
         output = temp
         place *= RADIX_BASE

@@ -1,13 +1,13 @@
 """Grouped binary-search-family algorithms."""
 
-from typing import Any, Iterable, List, TypeVar
+from typing import Iterable, List, TypeVar
 
 from algonest.utils import _validate_iterable
 
-T = TypeVar("T")
+ValueType = TypeVar("ValueType")
 
 
-def linear_search(arr: Iterable[T], target: T) -> int:
+def linear_search(arr: Iterable[ValueType], target: ValueType) -> int:
     """Return index of target using sequential scan.
 
     Args:
@@ -27,14 +27,14 @@ def linear_search(arr: Iterable[T], target: T) -> int:
         >>> linear_search([4, 2, 7], 7)
         2
     """
-    values: List[Any] = _validate_iterable(arr)
+    values: List[ValueType] = _validate_iterable(arr)
     for index, value in enumerate(values):
         if value == target:
             return index
     return -1
 
 
-def lower_bound(arr: Iterable[T], target: T) -> int:
+def lower_bound(arr: Iterable[ValueType], target: ValueType) -> int:
     """Return the first index whose value is greater than or equal to target.
 
     Args:
@@ -54,7 +54,7 @@ def lower_bound(arr: Iterable[T], target: T) -> int:
         >>> lower_bound([1, 2, 2, 4], 2)
         1
     """
-    values: List[Any] = _validate_iterable(arr)
+    values: List[ValueType] = _validate_iterable(arr)
     left = 0
     right = len(values)
 
@@ -68,7 +68,7 @@ def lower_bound(arr: Iterable[T], target: T) -> int:
     return left
 
 
-def upper_bound(arr: Iterable[T], target: T) -> int:
+def upper_bound(arr: Iterable[ValueType], target: ValueType) -> int:
     """Return the first index whose value is strictly greater than target.
 
     Args:
@@ -88,7 +88,7 @@ def upper_bound(arr: Iterable[T], target: T) -> int:
         >>> upper_bound([1, 2, 2, 4], 2)
         3
     """
-    values: List[Any] = _validate_iterable(arr)
+    values: List[ValueType] = _validate_iterable(arr)
     left = 0
     right = len(values)
 
@@ -102,7 +102,7 @@ def upper_bound(arr: Iterable[T], target: T) -> int:
     return left
 
 
-def binary_search(arr: Iterable[T], target: T) -> int:
+def binary_search(arr: Iterable[ValueType], target: ValueType) -> int:
     """Return the index of target in sorted data, or -1 if not found.
 
     Args:
@@ -122,7 +122,7 @@ def binary_search(arr: Iterable[T], target: T) -> int:
         >>> binary_search([1, 3, 5, 7], 5)
         2
     """
-    values: List[Any] = _validate_iterable(arr)
+    values: List[ValueType] = _validate_iterable(arr)
     left = 0
     right = len(values) - 1
 
@@ -138,7 +138,7 @@ def binary_search(arr: Iterable[T], target: T) -> int:
     return -1
 
 
-def ternary_search(arr: Iterable[T], target: T) -> int:
+def ternary_search(arr: Iterable[ValueType], target: ValueType) -> int:
     """Return index of target using iterative ternary search.
 
     Args:
@@ -158,7 +158,7 @@ def ternary_search(arr: Iterable[T], target: T) -> int:
         >>> ternary_search([1, 3, 5, 7, 9], 5)
         2
     """
-    values: List[Any] = _validate_iterable(arr)
+    values: List[ValueType] = _validate_iterable(arr)
     left = 0
     right = len(values) - 1
 
@@ -181,7 +181,7 @@ def ternary_search(arr: Iterable[T], target: T) -> int:
     return -1
 
 
-def jump_search(arr: Iterable[T], target: T) -> int:
+def jump_search(arr: Iterable[ValueType], target: ValueType) -> int:
     """Return index of target using jump search.
 
     Args:
@@ -201,7 +201,7 @@ def jump_search(arr: Iterable[T], target: T) -> int:
         >>> jump_search([1, 3, 5, 7, 9], 7)
         3
     """
-    values: List[Any] = _validate_iterable(arr)
+    values: List[ValueType] = _validate_iterable(arr)
     n = len(values)
     if n == 0:
         return -1

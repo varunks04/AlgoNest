@@ -1,10 +1,23 @@
 """Longest increasing subsequence algorithm."""
 
-from typing import List
+from typing import List, Sequence
 
 
-def lis_length(values: List[int]) -> int:
-    """Return LIS length using O(n log n) patience approach."""
+def lis_length(values: Sequence[int]) -> int:
+    """Compute LIS length using patience sorting with binary search.
+
+    Args:
+        values: Input sequence.
+
+    Returns:
+        Length of the longest strictly increasing subsequence.
+
+    Time Complexity:
+        O(n log n).
+
+    Space Complexity:
+        O(n).
+    """
     if not values:
         return 0
 
@@ -23,4 +36,4 @@ def lis_length(values: List[int]) -> int:
         else:
             tails[left] = value
 
-    return len(tails)
+    return int(len(tails))

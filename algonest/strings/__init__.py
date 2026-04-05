@@ -4,6 +4,11 @@ from algonest.strings.anagram import find_all_anagrams, group_anagrams, is_anagr
 from algonest.strings.kmp import kmp_search
 from algonest.strings.rabin_karp import rabin_karp_search
 from algonest.strings.trie import Trie
+from algonest.strings.utilities import (
+    is_palindrome,
+    longest_palindromic_substring,
+    rolling_hash,
+)
 from algonest.strings.z_algorithm import z_array, z_search
 
 __all__ = [
@@ -15,4 +20,7 @@ __all__ = [
     "group_anagrams",
     "is_anagram",
     "find_all_anagrams",
+    "is_palindrome",
+    "longest_palindromic_substring",
+    "rolling_hash",
 ]

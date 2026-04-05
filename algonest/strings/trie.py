@@ -1,13 +1,6 @@
 """Trie implementation for prefix matching."""
 
-from dataclasses import dataclass, field
-from typing import Dict
-
-
-@dataclass
-class _TrieNode:
-    children: Dict[str, "_TrieNode"] = field(default_factory=dict)
-    is_end: bool = False
+from algonest.nodes import TrieNode
 
 
 class Trie:
@@ -15,7 +8,7 @@ class Trie:
 
     def __init__(self) -> None:
         """Initialize an empty trie."""
-        self.root = _TrieNode()
+        self.root = TrieNode()
 
     def insert(self, word: str) -> None:
         """Insert a word into the trie.
@@ -32,7 +25,7 @@ class Trie:
         """
         node = self.root
         for ch in word:
-            node = node.children.setdefault(ch, _TrieNode())
+            node = node.children.setdefault(ch, TrieNode())
         node.is_end = True
 
     def search(self, word: str) -> bool:
@@ -94,7 +87,7 @@ class Trie:
             >>> trie.delete("algo")
             True
         """
-        def _delete(node: _TrieNode, index: int) -> bool:
+        def _delete(node: TrieNode, index: int) -> bool:
             if index == len(word):
                 if not node.is_end:
                     return False

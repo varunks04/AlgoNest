@@ -2,19 +2,7 @@
 
 from dataclasses import dataclass
 from typing import Any, Optional
-
-
-@dataclass
-class ListNode:
-    """Represent a node in a singly linked list.
-
-    Attributes:
-        value (Any): Node payload value.
-        next (Optional[ListNode]): Pointer to next node.
-    """
-
-    value: Any
-    next: Optional["ListNode"] = None
+from algonest.nodes import ListNode
 
 
 @dataclass

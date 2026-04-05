@@ -3,32 +3,62 @@
 from typing import List
 
 
-def z_array(s: str) -> List[int]:
-    """Return Z-array for string s."""
-    n = len(s)
-    z = [0] * n
+def z_array(text: str) -> List[int]:
+    """Compute Z-array for a string.
+
+    Args:
+        text: Input string.
+
+    Returns:
+        Z-array where each index stores longest prefix match length.
+
+    Time Complexity:
+        O(len(text)).
+
+    Space Complexity:
+        O(len(text)).
+    """
+    n = len(text)
+    z_values = [0] * n
     left = 0
     right = 0
-    for i in range(1, n):
-        if i <= right:
-            z[i] = min(right - i + 1, z[i - left])
-        while i + z[i] < n and s[z[i]] == s[i + z[i]]:
-            z[i] += 1
-        if i + z[i] - 1 > right:
-            left = i
-            right = i + z[i] - 1
-    return z
+    for index in range(1, n):
+        if index <= right:
+            z_values[index] = min(right - index + 1, z_values[index - left])
+        while (
+            index + z_values[index] < n
+            and text[z_values[index]] == text[index + z_values[index]]
+        ):
+            z_values[index] += 1
+        if index + z_values[index] - 1 > right:
+            left = index
+            right = index + z_values[index] - 1
+    return z_values
 
 
 def z_search(text: str, pattern: str) -> List[int]:
-    """Return match indices using Z-algorithm."""
+    """Find all occurrences of pattern in text using Z-algorithm.
+
+    Args:
+        text: Input text to search.
+        pattern: Pattern to match.
+
+    Returns:
+        Sorted list of match start indices.
+
+    Time Complexity:
+        O(len(text) + len(pattern)).
+
+    Space Complexity:
+        O(len(text) + len(pattern)).
+    """
     if pattern == "":
         return list(range(len(text) + 1))
-    concat = pattern + "$" + text
-    z = z_array(concat)
-    out: List[int] = []
-    p_len = len(pattern)
-    for i in range(p_len + 1, len(concat)):
-        if z[i] == p_len:
-            out.append(i - p_len - 1)
-    return out
+    merged_text = pattern + "$" + text
+    z_values = z_array(merged_text)
+    matches: List[int] = []
+    pattern_length = len(pattern)
+    for merged_index in range(pattern_length + 1, len(merged_text)):
+        if z_values[merged_index] == pattern_length:
+            matches.append(merged_index - pattern_length - 1)
+    return matches

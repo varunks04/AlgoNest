@@ -58,6 +58,6 @@ def assert_sorted(values: Iterable[Any]) -> None:
         >>> assert_sorted([1, 2, 2, 3])
     """
     seq = list(values)
-    for i in range(1, len(seq)):
-        if seq[i] < seq[i - 1]:
+    for index in range(1, len(seq)):
+        if seq[index] < seq[index - 1]:
             raise ValueError("values must be sorted in non-decreasing order")

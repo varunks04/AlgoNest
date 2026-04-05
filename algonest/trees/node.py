@@ -1,19 +1,5 @@
-"""Node definitions for tree data structures."""
+"""Tree node re-export for backwards compatibility."""
 
-from dataclasses import dataclass
-from typing import Optional
+from algonest.nodes import TreeNode
 
-
-@dataclass
-class TreeNode:
-    """Represent a binary tree node.
-
-    Args:
-        value (int): Node value.
-        left (Optional[TreeNode]): Left child.
-        right (Optional[TreeNode]): Right child.
-    """
-
-    value: int
-    left: Optional["TreeNode"] = None
-    right: Optional["TreeNode"] = None
+__all__ = ["TreeNode"]

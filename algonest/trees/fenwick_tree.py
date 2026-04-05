@@ -14,10 +14,10 @@ class FenwickTree:
         """Add delta to value at zero-based index."""
         if index < 0 or index >= self.size:
             raise IndexError("index out of range")
-        i = index + 1
-        while i <= self.size:
-            self.tree[i] += delta
-            i += i & -i
+        tree_index = index + 1
+        while tree_index <= self.size:
+            self.tree[tree_index] += delta
+            tree_index += tree_index & -tree_index
 
     def prefix_sum(self, index: int) -> int:
         """Return sum from index 0 to index inclusive."""
@@ -26,10 +26,10 @@ class FenwickTree:
         if index >= self.size:
             raise IndexError("index out of range")
         total = 0
-        i = index + 1
-        while i > 0:
-            total += self.tree[i]
-            i -= i & -i
+        tree_index = index + 1
+        while tree_index > 0:
+            total += self.tree[tree_index]
+            tree_index -= tree_index & -tree_index
         return total
 
     def range_query(self, left: int, right: int) -> int:
