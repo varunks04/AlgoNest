@@ -1,31 +1,29 @@
 # Contributing
 
-Thank you for contributing to AlgoNest.
+Thanks for helping improve AlgoNest.
 
-## Clone and Setup
+## Setup
 
 ```bash
-git clone https://github.com/varunks04/AlgoNest.git
-cd AlgoNest
-pip install -e .[dev]
+pip install -e .
 ```
 
 ## Run Tests
 
 ```bash
-python -m pytest -q tests
+python -m pytest -q
 ```
 
-## Coding Rules
+## Coding Guidelines
 
-- Keep implementations deterministic and side-effect aware.
-- Preserve existing public API names unless the change explicitly targets API evolution.
-- Prefer clear, typed signatures and concise docstrings.
-- Add or update tests for any behavior change.
+- Keep public APIs stable unless a change explicitly updates them.
+- Prefer typed signatures, deterministic behavior, and small focused functions.
+- Update or add tests for any behavior change.
+- Keep documentation aligned with implementation.
 
-## Pull Request Guidelines
+## Pull Requests
 
-- Keep PR scope focused and explain the motivation clearly.
-- Include test coverage for new behavior and edge cases.
-- Update documentation when public behavior or usage changes.
-- Ensure all tests pass before requesting review.
+- Keep the scope focused.
+- Explain the user-facing change clearly.
+- Include tests for new behavior and edge cases.
+- Ensure the documentation still matches the code.

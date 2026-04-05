@@ -1,0 +1,348 @@
+# AlgoNest API Reference
+
+## algonest/
+
+### arrays/
+- container_with_water(arr: Iterable[Any]) -> int
+- diagonal_traversal(matrix: Iterable[Iterable[ValueType]]) -> List[ValueType]
+- insert_interval(intervals: Iterable[Sequence[int]], new_interval: Sequence[int]) -> List[Interval]
+- longest_unique_substring(s: str) -> int
+- max_subarray_sum(arr: Iterable[Real]) -> Real
+- max_sum_subarray_k(arr: Iterable[Real], k: int) -> Real
+- merge_intervals(intervals: Iterable[Sequence[int]]) -> List[Interval]
+- next_permutation(arr: Iterable[ValueType]) -> List[ValueType]
+- non_overlapping_count(intervals: Iterable[Sequence[int]]) -> int
+- partition_by_pivot(arr: Iterable[Any], pivot: Any) -> List[Any]
+- prefix_sum(arr: Iterable[Real]) -> List[Real]
+- prev_permutation(arr: Iterable[ValueType]) -> List[ValueType]
+- range_sum(prefix: Iterable[Real], left: int, right: int) -> Real
+- remove_duplicates(arr: Iterable[Any]) -> int
+- reverse_array(arr: Iterable[ValueType]) -> List[ValueType]
+- reverse_subarray(arr: Iterable[ValueType], left: int, right: int) -> List[ValueType]
+- reverse_words(text: str) -> str
+- rotate_left(arr: Iterable[ValueType], steps: int) -> List[ValueType]
+- rotate_matrix_90(matrix: Iterable[Iterable[ValueType]]) -> List[List[ValueType]]
+- rotate_right(arr: Iterable[ValueType], steps: int) -> List[ValueType]
+- set_zeroes(matrix: Iterable[Iterable[int]]) -> List[List[int]]
+- sort_three_values(arr: Iterable[Any], low_value: Any, mid_value: Any, high_value: Any) -> List[Any]
+- spiral_order(matrix: Iterable[Iterable[ValueType]]) -> List[ValueType]
+- subarray_sum_equals_k(arr: Iterable[Real], k: Real) -> int
+- transpose(matrix: Iterable[Iterable[ValueType]]) -> List[List[ValueType]]
+- two_sum_sorted(arr: Iterable[Real], target: Real) -> Tuple[int, int]
+
+### search/
+- binary_search(arr: Iterable[ValueType], target: ValueType) -> int
+- binary_search_rotated(arr: Iterable[ValueType], target: ValueType) -> int
+- exponential_search(arr: Iterable[ValueType], target: ValueType) -> int
+- interpolation_search(arr: Iterable[Real], target: Real) -> int
+- jump_search(arr: Iterable[ValueType], target: ValueType) -> int
+- linear_search(arr: Iterable[ValueType], target: ValueType) -> int
+- lower_bound(arr: Iterable[ValueType], target: ValueType) -> int
+- search_2d_matrix(matrix: Iterable[Iterable[ValueType]], target: ValueType, method: str = 'staircase') -> Tuple[int, int]
+- search_matrix_binary(matrix: Iterable[Iterable[ValueType]], target: ValueType) -> Tuple[int, int]
+- search_matrix_staircase(matrix: Iterable[Iterable[ValueType]], target: ValueType) -> Tuple[int, int]
+- search_rotated(arr: Iterable[ValueType], target: ValueType) -> int
+- ternary_search(arr: Iterable[ValueType], target: ValueType) -> int
+- upper_bound(arr: Iterable[ValueType], target: ValueType) -> int
+
+### sort/
+- bubble_sort(arr: Iterable[Any]) -> List[Any]
+- bucket_sort(arr: Iterable[Real], bucket_count: int = 10) -> List[Real]
+- counting_sort(arr: Iterable[Any]) -> List[int]
+- cycle_sort(arr: Iterable[Any]) -> List[Any]
+- heap_sort(arr: Iterable[Any]) -> List[Any]
+- insertion_sort(arr: Iterable[Any]) -> List[Any]
+- merge_sort(arr: Iterable[Any]) -> List[Any]
+- quick_sort(arr: Iterable[Any]) -> List[Any]
+- radix_sort(arr: Iterable[Any]) -> List[int]
+- selection_sort(arr: Iterable[Any]) -> List[Any]
+- shell_sort(arr: Iterable[Any]) -> List[Any]
+- tim_sort(arr: Iterable[Any]) -> List[Any]
+
+### linked_list/
+- cycle_length(head: Optional[ListNode]) -> int
+- find_cycle_start(head: Optional[ListNode]) -> Optional[ListNode]
+- find_middle(head: Optional[ListNode]) -> Optional[ListNode]
+- has_cycle(head: Optional[ListNode]) -> bool
+- merge_two_sorted(left: Optional[ListNode], right: Optional[ListNode]) -> Optional[ListNode]
+- remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]
+- reverse_in_groups(head: Optional[ListNode], k: int) -> Optional[ListNode]
+- reverse_list(head: Optional[ListNode]) -> Optional[ListNode]
+- Class: CircularLinkedList
+  - __init__() -> None
+  - insert(value: Any) -> None
+  - josephus(step: int) -> Any
+  - rotate(k: int) -> None
+  - to_list() -> List[Any]
+- Class: DoublyLinkedList
+  - __init__() -> None
+  - delete(value: Any) -> bool
+  - insert(value: Any) -> None
+  - to_list() -> List[Any]
+  - traverse_backward() -> List[Any]
+- Class: DoublyListNode
+  - __init__(value: Any, prev: Optional['DoublyListNode'] = None, next: Optional['DoublyListNode'] = None) -> None
+- Class: ListNode
+  - __init__(value: Any, next: Optional['ListNode'] = None) -> None
+- Class: LRUCache
+  - __init__(capacity: int) -> None
+  - get(key: int) -> int
+  - put(key: int, value: int) -> None
+- Class: SinglyLinkedList
+  - __init__() -> None
+  - delete(value: Any) -> bool
+  - detect_cycle() -> bool
+  - insert(value: Any) -> None
+  - reverse() -> None
+  - to_list() -> List[Any]
+
+### stack_queue/
+- evaluate_postfix(expression: str) -> float
+- infix_to_postfix(expression: str) -> str
+- largest_rectangle_in_histogram(heights: List[int]) -> int
+- next_greater_element(nums: List[int]) -> List[int]
+- valid_parentheses(text: str) -> bool
+- Class: CircularQueue
+  - __init__(capacity: int) -> None
+  - dequeue() -> Any
+  - enqueue(value: Any) -> bool
+  - front() -> Any
+  - is_empty() -> bool
+  - is_full() -> bool
+  - rear() -> Any
+- Class: DequeDS
+  - __init__() -> None
+  - is_empty() -> bool
+  - pop_back() -> Any
+  - pop_front() -> Any
+  - push_back(value: Any) -> None
+  - push_front(value: Any) -> None
+- Class: MinStack
+  - __init__() -> None
+  - get_min() -> int
+  - pop() -> int
+  - push(value: int) -> None
+  - top() -> int
+- Class: Queue
+  - __init__() -> None
+  - dequeue() -> Any
+  - enqueue(value: Any) -> None
+  - front() -> Any
+  - is_empty() -> bool
+- Class: Stack
+  - __init__() -> None
+  - is_empty() -> bool
+  - peek() -> Any
+  - pop() -> Any
+  - push(value: Any) -> None
+
+### heap/
+- k_closest_points(points: Sequence[Tuple[int, int]], k: int) -> List[Tuple[int, int]]
+- kth_largest(values: Iterable[int], k: int) -> int
+- kth_smallest(values: Iterable[int], k: int) -> int
+- merge_k_sorted_arrays(arrays: Sequence[Sequence[int]]) -> List[int]
+- merge_k_sorted_lists(lists: Sequence[Optional[ListNode]]) -> Optional[ListNode]
+- top_k_frequent(values: Iterable[int], k: int) -> List[int]
+- Class: MaxHeap
+  - __init__() -> None
+  - extract_max() -> Any
+  - heapify(values: List[Any]) -> None
+  - insert(value: Any) -> None
+- Class: MedianFinder
+  - __init__() -> None
+  - add_num(value: int) -> None
+  - find_median() -> float
+- Class: MinHeap
+  - __init__() -> None
+  - extract_min() -> Any
+  - heapify(values: List[Any]) -> None
+  - insert(value: Any) -> None
+- Class: PriorityQueue
+  - __init__(key: Optional[Callable[[Any], Any]] = None, min_priority: bool = True) -> None
+  - is_empty() -> bool
+  - peek() -> Any
+  - pop() -> Any
+  - push(value: Any) -> None
+
+### trees/
+- build_from_preorder_inorder(preorder: List[int], inorder: List[int]) -> Optional[TreeNode]
+- count_leaves(root: Optional[TreeNode]) -> int
+- count_nodes(root: Optional[TreeNode]) -> int
+- deserialize(data: str) -> Optional[TreeNode]
+- diameter(root: Optional[TreeNode]) -> int
+- has_path_sum(root: Optional[TreeNode], target_sum: int) -> bool
+- height(root: Optional[TreeNode]) -> int
+- inorder(root: Optional[TreeNode], iterative: bool = False) -> List[int]
+- is_balanced(root: Optional[TreeNode]) -> bool
+- is_symmetric(root: Optional[TreeNode]) -> bool
+- lca_binary_tree(root: Optional[TreeNode], p_value: int, q_value: int) -> Optional[TreeNode]
+- lca_bst(root: Optional[TreeNode], p_value: int, q_value: int) -> Optional[TreeNode]
+- left_view(root: Optional[TreeNode]) -> List[int]
+- level_order(root: Optional[TreeNode]) -> List[int]
+- max_path_sum(root: Optional[TreeNode]) -> int
+- postorder(root: Optional[TreeNode], iterative: bool = False) -> List[int]
+- preorder(root: Optional[TreeNode], iterative: bool = False) -> List[int]
+- right_view(root: Optional[TreeNode]) -> List[int]
+- root_to_leaf_paths(root: Optional[TreeNode]) -> List[List[int]]
+- serialize(root: Optional[TreeNode]) -> str
+- top_view(root: Optional[TreeNode]) -> List[int]
+- Class: AVLNode
+  - __init__(value: int, left: Optional['AVLNode'] = None, right: Optional['AVLNode'] = None, height: int = 1) -> None
+- Class: AVLTree
+  - __init__() -> None
+  - insert(value: int) -> None
+  - search(value: int) -> bool
+- Class: BST
+  - __init__() -> None
+  - ceil(value: int) -> Optional[int]
+  - delete(value: int) -> None
+  - floor(value: int) -> Optional[int]
+  - insert(value: int) -> None
+  - kth_smallest(k: int) -> Optional[int]
+  - search(value: int) -> bool
+- Class: BinaryTree
+  - __init__() -> None
+  - height() -> int
+  - insert(value: int) -> None
+  - is_balanced() -> bool
+  - lca(first: int, second: int) -> Optional[int]
+- Class: FenwickTree
+  - __init__(size: int) -> None
+  - point_update(index: int, delta: int) -> None
+  - prefix_sum(index: int) -> int
+  - range_query(left: int, right: int) -> int
+- Class: SegmentTree
+  - __init__(values: List[int]) -> None
+  - point_update(pos: int, value: int) -> None
+  - range_max(ql: int, qr: int) -> int
+  - range_min(ql: int, qr: int) -> int
+  - range_sum(ql: int, qr: int) -> int
+- Class: TreeNode
+  - __init__(value: Any, left: Optional['TreeNode'] = None, right: Optional['TreeNode'] = None) -> None
+- Class: Trie
+  - __init__() -> None
+  - delete(word: str) -> bool
+  - insert(word: str) -> None
+  - search(word: str) -> bool
+  - starts_with(prefix: str) -> bool
+
+### graphs/
+- adj_list_to_matrix(adj: Dict[int, List[int]]) -> List[List[int]]
+- bellman_ford(vertices: int, edges: List[Tuple[int, int, int]], source: int) -> Tuple[List[int], bool]
+- bfs_traversal(graph: Dict[int, List[int]], start: int) -> List[int]
+- connected_components(graph: Dict[int, List[int]]) -> List[List[int]]
+- dfs_topological_sort(graph: Dict[int, List[int]]) -> List[int]
+- dfs_traversal(graph: Dict[int, List[int]], start: int) -> List[int]
+- dijkstra_shortest_paths(graph: Dict[int, List[Tuple[int, int]]], source: int) -> Dict[int, int]
+- edge_list_to_adj(edges: Iterable[Tuple[int, int]], directed: bool = False) -> Dict[int, List[int]]
+- floyd_warshall(matrix: List[List[int]]) -> List[List[int]]
+- has_cycle_directed(graph: Dict[int, List[int]]) -> bool
+- has_cycle_undirected(graph: Dict[int, List[int]]) -> bool
+- is_bipartite(graph: Dict[int, List[int]]) -> bool
+- kahn_topological_sort(graph: Dict[int, List[int]]) -> List[int]
+- kosaraju_scc(graph: Dict[int, List[int]]) -> List[List[int]]
+- kruskal_mst(vertices: int, edges: List[Tuple[int, int, int]]) -> int
+- matrix_to_adj_list(matrix: Sequence[Sequence[int]]) -> Dict[int, List[int]]
+- prim_mst(graph: Dict[int, List[Tuple[int, int]]], start: int = 0) -> int
+- shortest_path_unweighted(graph: Dict[int, List[int]], start: int, target: int) -> Optional[List[int]]
+- Class: DSU
+  - __init__(size: int) -> None
+  - find(x: int) -> int
+  - union(a: int, b: int) -> bool
+
+### dynamic_programming/
+- coin_change_ways(coins: Sequence[int], amount: int) -> int
+- edit_distance(first: str, second: str) -> int
+- fib_memo(n: int) -> int
+- fib_space_optimized(n: int) -> int
+- fib_tabulated(n: int) -> int
+- knapsack_01(weights: Sequence[int], values: Sequence[int], capacity: int) -> int
+- lcs_length(first: str, second: str) -> int
+- lis_length(values: Sequence[int]) -> int
+- matrix_chain_order(dims: Sequence[int]) -> int
+- min_coins(coins: Sequence[int], amount: int) -> int
+- min_path_sum(grid: Sequence[Sequence[int]]) -> int
+- partition_equal_subset(values: Iterable[int]) -> bool
+- subset_sum(values: Iterable[int], target: int) -> bool
+- unbounded_knapsack(weights: Sequence[int], values: Sequence[int], capacity: int) -> int
+- unique_paths(m: int, n: int) -> int
+
+### strings/
+- find_all_anagrams(text: str, pattern: str) -> List[int]
+- group_anagrams(words: List[str]) -> List[List[str]]
+- is_anagram(first: str, second: str) -> bool
+- is_palindrome(text: str) -> bool
+- kmp_search(text: str, pattern: str) -> List[int]
+- longest_palindromic_substring(text: str) -> str
+- rabin_karp_search(text: str, pattern: str) -> List[int]
+- rolling_hash(text: str, base: int = 257, mod: int = 1000000007) -> int
+- z_array(text: str) -> List[int]
+- z_search(text: str, pattern: str) -> List[int]
+- Class: Trie
+  - __init__() -> None
+  - delete(word: str) -> bool
+  - insert(word: str) -> None
+  - search(word: str) -> bool
+  - starts_with(prefix: str) -> bool
+
+### math/
+- catalan_number(n: int) -> int
+- chinese_remainder_theorem(mods: Sequence[int], rems: Sequence[int]) -> int
+- clear_bit(value: int, pos: int) -> int
+- count_bits(value: int) -> int
+- extended_gcd(a: int, b: int) -> Tuple[int, int, int]
+- factorial(n: int) -> int
+- fast_power(base: int, exp: int) -> int
+- gcd(a: int, b: int) -> int
+- identity(size: int) -> Matrix
+- is_power_of_two(value: int) -> bool
+- is_prime(n: int) -> bool
+- lcm(a: int, b: int) -> int
+- matrix_multiply(left: Sequence[Sequence[int]], right: Sequence[Sequence[int]]) -> Matrix
+- matrix_power(matrix: Sequence[Sequence[int]], power: int) -> Matrix
+- mean(values: Iterable[float]) -> float
+- median(values: Iterable[float]) -> float
+- mod_exp(base: int, exp: int, mod: int) -> int
+- mod_inverse(a: int, mod: int) -> int
+- mode(values: Iterable[float]) -> float
+- n_choose_r(n: int, r: int) -> int
+- permutations_count(n: int, r: int) -> int
+- prime_factors(n: int) -> List[int]
+- set_bit(value: int, pos: int) -> int
+- sieve_of_eratosthenes(limit: int) -> List[int]
+- std_deviation(values: Iterable[float], sample: bool = False) -> float
+- variance(values: Iterable[float], sample: bool = False) -> float
+- xor_trick(a: int, b: int) -> int
+
+### backtracking/
+- all_permutations(values: Sequence[int]) -> List[List[int]]
+- all_subsets(values: Sequence[int]) -> List[List[int]]
+- combination_sum(values: Iterable[int], target: int) -> List[List[int]]
+- combinations(values: Sequence[int], k: int) -> List[List[int]]
+- permutations_no_duplicates(values: Iterable[int]) -> List[List[int]]
+- subsets_no_duplicates(values: Iterable[int]) -> List[List[int]]
+
+### greedy/
+- can_reach_end(values: Sequence[int]) -> bool
+- fractional_knapsack(weights: Sequence[float], values: Sequence[float], capacity: float) -> float
+- max_non_overlapping_activities(intervals: Iterable[Sequence[int]]) -> List[Interval]
+- min_jumps(values: Sequence[int]) -> int
+
+### nodes/
+- Class: GraphNode
+  - __init__(value: Any, neighbors: List['GraphNode'] = ...) -> None
+- Class: ListNode
+  - __init__(value: Any, next: Optional['ListNode'] = None) -> None
+- Class: TreeNode
+  - __init__(value: Any, left: Optional['TreeNode'] = None, right: Optional['TreeNode'] = None) -> None
+- Class: TrieNode
+  - __init__(children: Dict[str, 'TrieNode'] = ..., is_end: bool = False) -> None
+
+### utils/
+- assert_sorted(values: Iterable[Any]) -> None
+- build_pytest_command(test_path: str = DEFAULT_TEST_PATH) -> List[str]
+- read_ints_from_text(text: str) -> List[int]
+- run_tests(test_path: str = DEFAULT_TEST_PATH) -> int
+- time_function(func: Callable[..., Any], *args: Any, **kwargs: Any) -> Tuple[Any, float]
+- validate_iterable(arr: Any) -> List[Any]
+- write_lines(lines: Iterable[str]) -> str

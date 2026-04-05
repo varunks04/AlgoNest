@@ -1,27 +1,29 @@
 # Project Structure
 
-AlgoNest uses a conventional Python package layout.
-Source code lives in `algonest/`, with tests, docs, and project configuration at repository root.
+AlgoNest follows a standard Python package layout. Public algorithms live under `algonest/`, with tests, benchmarks, and documentation at repository root.
 
 ```text
 AlgoNest/
 |-- algonest/
-|   |-- arrays/                 # Array and two-pointer patterns
-|   |-- search/                 # Linear, binary, ternary, jump search
-|   |-- sort/                   # Comparison and non-comparison sorting
-|   |-- linked_list/            # Linked list nodes and list variants
-|   |-- stack_queue/            # Stack, queue, deque, monotonic stack
-|   |-- heap/                   # MinHeap, MaxHeap, PriorityQueue
-|   |-- trees/                  # Tree structures and traversals
-|   |-- graphs/                 # Graph traversal, shortest paths, MST, DSU
-|   |-- dynamic_programming/    # Knapsack, LCS/LIS, coin change, matrix chain
-|   |-- strings/                # KMP, Rabin-Karp, Z algorithm, trie, anagram
-|   |-- math/                   # Number theory and bit manipulation
-|   `-- utils/                  # Validation, debug, I/O, test runner helpers
-|-- tests/                      # Pytest suites mirroring package modules
-|-- benchmarks/                 # Performance comparison scripts
-|-- docs/                       # Supplementary project documentation
-|-- README.md                   # Project overview and quick start
-|-- API_GUIDE.md                # API signatures and usage references
-`-- pyproject.toml              # Packaging and dependency metadata
+|   |-- arrays/              # Array patterns, interval helpers, matrix helpers
+|   |-- backtracking/        # Combinations, permutations, subsets
+|   |-- dynamic_programming/ # Fibonacci, knapsack, LCS/LIS, coin change, grid DP
+|   |-- graphs/              # Traversal, shortest path, MST, DSU, representation helpers
+|   |-- greedy/              # Activity selection, knapsack, jump-game helpers
+|   |-- heap/                # Min/max heap, priority queue, k-element helpers
+|   |-- linked_list/         # Linked-list structures and operations
+|   |-- math/                # Number theory, combinatorics, matrix math, statistics
+|   |-- nodes/               # Canonical node types shared across modules
+|   |-- search/              # Linear, binary, rotated, jump, 2D matrix search
+|   |-- sort/                # Core and advanced sorting implementations
+|   |-- stack_queue/         # Stack, queue, deque, expression, monotonic stack
+|   |-- strings/             # Trie, hashes, substring search, palindrome helpers
+|   |-- trees/               # Binary trees, BSTs, AVL, Fenwick, segment trees
+|   `-- utils/               # Validation, debug, I/O, and test helpers
+|-- benchmarks/              # Performance comparison scripts
+|-- docs/                    # Supplementary documentation
+|-- tests/                   # Pytest suites mirroring the package modules
+|-- ALGONEST_API.md          # Public API map
+|-- README.md                # Project overview and usage guide
+`-- pyproject.toml           # Packaging metadata and dependencies
 ```

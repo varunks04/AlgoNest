@@ -1,16 +1,37 @@
 # AlgoNest
 
-AlgoNest is a Python algorithms and data structures library with a unified, iterable-first API.
-It is designed for interview prep, education, and production utility code where correctness and readability matter.
-The package provides reusable implementations with consistent naming and behavior across modules.
+AlgoNest is a Python toolkit for reusable algorithms, data structures, and small utility helpers.
+It gives developers a consistent, iterable-first API for common problems without rebuilding the same primitives each time.
+
+## Problem Statement
+
+Many algorithm libraries are either classroom examples or narrow problem-specific snippets. AlgoNest is built as a practical toolkit instead: a collection of reusable building blocks for search, sorting, trees, graphs, dynamic programming, strings, math, and supporting utilities. It is useful when you want clean, typed implementations that are easy to import, compose, and reuse in exercises, interview prep, and real code.
+
+## Target Audience
+
+AlgoNest is for:
+
+- Students learning core data structures and algorithm patterns
+- Developers preparing for interviews
+- Engineers who want reliable reference implementations
+- Maintainers who need compact reusable helpers instead of one-off snippets
 
 ## Key Features
 
-- Unified API exposed from package root (`from algonest import ...`)
-- Broad coverage: arrays, search, sort, trees, graphs, dynamic programming, strings, math, and utilities
-- Iterable-first function contracts for flexible inputs
-- Stable behavior with explicit validation and predictable error handling
-- Lightweight package footprint with no required runtime dependencies
+- `arrays/`: interval helpers, prefix sums, two pointers, Kadane, rotations, and matrix utilities
+- `search/`: linear, binary, rotated, exponential, interpolation, jump, ternary, and 2D matrix search
+- `sort/`: classic and advanced sorting implementations
+- `linked_list/`: singly, doubly, and circular list structures plus linked-list algorithms
+- `stack_queue/`: stacks, queues, deques, monotonic stack utilities, and expression helpers
+- `heap/`: min/max heaps, priority queue, top-k helpers, merge helpers, and median tracking
+- `trees/`: binary trees, BSTs, AVL trees, segment trees, Fenwick trees, traversals, views, and path helpers
+- `graphs/`: traversal, shortest path, MST, SCC, bipartite, DSU, and representation helpers
+- `dynamic_programming/`: Fibonacci, knapsack, coin change, LCS, LIS, edit distance, subset DP, and grid DP
+- `strings/`: trie, anagram helpers, KMP, Rabin-Karp, Z algorithm, rolling hash, and palindrome helpers
+- `math/`: number theory, modular arithmetic, combinatorics, matrix math, statistics, and bit manipulation
+- `backtracking/`: combinations, permutations, subsets, and combination sum helpers
+- `greedy/`: activity selection, fractional knapsack, jump-game helpers, and reachability logic
+- `nodes/` and `utils/`: shared node types, validation, testing helpers, I/O helpers, and debug utilities
 
 ## Installation
 
@@ -18,43 +39,55 @@ The package provides reusable implementations with consistent naming and behavio
 pip install algonest
 ```
 
+For local development:
+
+```bash
+pip install -e .
+```
+
 ## Quick Usage Examples
 
-### Search: `binary_search`
+### Search
 
 ```python
-from algonest import binary_search
+from algonest import binary_search, search_2d_matrix
 
 index = binary_search([1, 3, 5, 7, 9], 7)
-print(index)  # 3
+location = search_2d_matrix([[1, 4, 7], [10, 13, 16]], 13)
 ```
 
-### Arrays: `max_subarray_sum` (Kadane)
+### Arrays
 
 ```python
-from algonest import max_subarray_sum
+from algonest import max_subarray_sum, prefix_sum, range_sum
 
 best = max_subarray_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4])
-print(best)  # 6
+prefix_values = prefix_sum([1, 2, 3, 4])
+window_total = range_sum(prefix_values, 1, 3)
 ```
 
-### Sort: `merge_sort`
+### Trees
 
 ```python
-from algonest import merge_sort
+from algonest import BinaryTree
 
-sorted_values = merge_sort([5, 2, 9, 1])
-print(sorted_values)  # [1, 2, 5, 9]
+tree = BinaryTree()
+for value in [5, 3, 8, 1, 4]:
+	tree.insert(value)
+
+height = tree.height()
+balanced = tree.is_balanced()
 ```
 
-## Supported Data Types
+### Strings
 
-AlgoNest APIs are built around iterable inputs and internal list conversion.
+```python
+from algonest import Trie, kmp_search
 
-- `list`: fully supported
-- `tuple`: fully supported
-- NumPy arrays: supported when NumPy is installed, because arrays are iterable
-- Custom nodes and data structures: provided for linked lists and trees (`ListNode`, `DoublyListNode`, `TreeNode`)
+trie = Trie()
+trie.insert("algo")
+matches = kmp_search("ababcabcab", "abc")
+```
 
 ## Project Structure
 
@@ -62,42 +95,40 @@ AlgoNest APIs are built around iterable inputs and internal list conversion.
 AlgoNest/
 |-- algonest/
 |   |-- arrays/
+|   |-- backtracking/
+|   |-- dynamic_programming/
+|   |-- graphs/
+|   |-- greedy/
+|   |-- heap/
+|   |-- linked_list/
+|   |-- math/
+|   |-- nodes/
 |   |-- search/
 |   |-- sort/
-|   |-- linked_list/
 |   |-- stack_queue/
-|   |-- heap/
-|   |-- trees/
-|   |-- graphs/
-|   |-- dynamic_programming/
 |   |-- strings/
-|   |-- math/
+|   |-- trees/
 |   `-- utils/
-|-- tests/
 |-- benchmarks/
 |-- docs/
-|-- API_GUIDE.md
+|   `-- Project Structure.md
+|-- tests/
+|-- ALGONEST_API.md
+|-- CONTRIBUTING.md
+|-- CODE_OF_CONDUCT.md
+|-- README.md
 `-- pyproject.toml
 ```
 
-## Design Principles
+## Design Philosophy
 
-- Consistency: common naming and predictable return behavior
-- Reusability: modular algorithms and data structures that compose well
-- Simplicity: clear function contracts and minimal API friction
-- Performance: practical implementations with documented complexity
+AlgoNest is a toolkit, not a problem bank. The goal is to provide small, reusable implementations with consistent naming, clear signatures, and predictable behavior so the package is useful as a reference and as a foundation for real code.
 
-## Roadmap
+## Development Notes
 
-- Phase 1: Core algorithms (search, sort, arrays)
-- Phase 2: Core data structures (linked lists, stack/queue, heap)
-- Phase 3: Advanced algorithms (trees, graphs, dynamic programming)
-- Phase 4: Specialized modules (strings, math, utilities)
-- Phase 5: Ecosystem quality (packaging, docs, tests, CI)
-
-## Contributing
-
-Contributions are welcome. See `CONTRIBUTING.md` for setup, test commands, and pull request guidelines.
+- Tests are organized with `pytest` under `tests/`.
+- Public API signatures are documented in `ALGONEST_API.md`.
+- Contribution guidance is in `CONTRIBUTING.md`.
 
 ## License
 

@@ -1,20 +1,20 @@
 ---
 name: Bug report
-about: Report incorrect behavior in algorithms or data structures
+about: Report incorrect behavior in an algorithm, data structure, or utility
 labels: bug
 ---
 
 ## Summary
 
-Provide a short description of the issue.
+Describe the problem briefly.
 
 ## Steps to Reproduce
 
-List the exact steps or provide a minimal reproducible snippet.
+List the exact steps or include a minimal reproducible snippet.
 
 ## Expected Behavior
 
-Describe the expected result.
+Describe what you expected to happen.
 
 ## Actual Behavior
 
@@ -23,11 +23,11 @@ Describe what happened instead.
 ## Minimal Example
 
 ```python
-# Optional but recommended
+# Optional, but helpful
 ```
 
 ## Environment
 
 - Python version:
 - OS:
-- AlgoNest version:
+- AlgoNest version or commit:
